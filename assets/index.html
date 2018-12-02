@@ -18,7 +18,7 @@
       }
 
     </style>
-</head> 
+</head>
 
 <body>
     <nav class="navbar navbar-light navbar-expand-md" style="background-color: rgb(249,249,249)">
@@ -47,14 +47,14 @@
             </div>
         </div>
     </section>
-    <div class="text-center newsletter-subscribe" style="width: 550px;background-color: rgba(255,255,255,0.9);position: fixed; bottom: 120px; right: 30%; width: 480px; z-index: 99 !important; display: block;" id="myForm">
+    <div class="text-center newsletter-subscribe" style="width: 550px;background-color: rgba(255,255,255,0.9);position: fixed; bottom: 120px; right: 30%; width: 480px; z-index: 99 !important; display: none;" id="myForm">
         <div class="container" style="min-width: 12px;">
             <div class="intro">
                 <div class="col">
                     <h2 class="text-center">Make a Reservation!</h2>
                 </div>
-                <p class="text-center" style="margin-bottom: 5px;">Address: 1309 Lillian Ave, Sunnyvale CA 94087</p>
-                <p class="text-center" style="margin-bottom: 25px;">Phone #: (408) 999 9999</p>
+                <p class="text-center" style="margin-bottom: 5px;" id="address">Address: 1309 Lillian Ave, Sunnyvale CA 94087</p>
+                <p class="text-center" style="margin-bottom: 25px;" id='phone'>Phone #: (408) 999 9999</p>
             </div>
             <div>
                 <div class="row">
@@ -63,7 +63,7 @@
                             <a href="reservation.html">
                             <button class="btn btn-secondary btn-sm text-center" type="button" style="background-color: rgba(0,123,255,0.75);" >Make a Reservation</button>
                             </a>
-                            
+
                             <button class="btn btn-primary btn-sm text-center" type="button" style="background-color: rgba(255,0,0,0.75);" onclick="closeForm()">Cancel</button></div>
                     </div>
                 </div>

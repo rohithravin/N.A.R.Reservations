@@ -2,6 +2,11 @@ function closeForm() {
     document.getElementById("myForm").style.display = "none";
 }
 
+function openForm(addy, phone) {
+    document.getElementById("myForm").style.display = "block";
+    document.getElementById("address").innerHTML = addy;
+    document.getElementById("phone").innerHTML = "Contact Us: " + phone;
+}
 
 function initMap() {
 
@@ -29,6 +34,10 @@ function initMap() {
     marker.addListener('click', function() {
       map.setZoom(15);
       map.setCenter(marker.getPosition());
+      openForm("3419 19th St, San Francisco, CA 94110","(415) - 967 - 2622");
+      localStorage.setItem("Address", "3419 19th St, San Francisco, CA 94110");
+      localStorage.setItem("Phone", "(415) - 967 - 2622");
+      localStorage.setItem("id", "01");
     });
 
     var la = {
@@ -44,6 +53,10 @@ function initMap() {
     marker2.addListener('click', function() {
       map.setZoom(15);
       map.setCenter(marker2.getPosition());
+      openForm("523 W 7th St, Los Angeles, CA 90014","(213) - 628 - 3146");
+      localStorage.setItem("Address", "523 W 7th St, Los Angeles, CA 90014");
+      localStorage.setItem("Phone", "(213) - 628 - 3146");
+      localStorage.setItem("id", "02");
     });
 
     var sj = {
@@ -59,6 +72,10 @@ function initMap() {
     marker3.addListener('click', function() {
       map.setZoom(15);
       map.setCenter(marker3.getPosition());
+      openForm("428 E Santa Clara St, San Jose, CA 95113","(408) - 998 - 2353");
+      localStorage.setItem("Address", "428 E Santa Clara St, San Jose, CA 95113");
+      localStorage.setItem("Phone", "(408) - 998 - 2353");
+      localStorage.setItem("id", "03");
     });
 
     var cupertino = {
@@ -74,6 +91,10 @@ function initMap() {
     marker4.addListener('click', function() {
       map.setZoom(15);
       map.setCenter(marker4.getPosition());
+      openForm("20080 Stevens Creek Blvd, Cupertino, CA 95014","(408) - 988 - 2353");
+      localStorage.setItem("Address", "20080 Stevens Creek Blvd, Cupertino, CA 95014");
+      localStorage.setItem("Phone", "(408) - 988 - 2353");
+      localStorage.setItem("id", "04");
     });
 
     var marker5 = new google.maps.Marker({
@@ -84,6 +105,10 @@ function initMap() {
     marker5.addListener('click', function() {
       map.setZoom(15);
       map.setCenter(marker5.getPosition());
+      openForm("110 Inner Campus Drive, Austin, TX 78705","(512) - 471 - 3434");
+      localStorage.setItem("Address", "110 Inner Campus Drive, Austin, TX 78705");
+      localStorage.setItem("Phone", "(512) - 471 - 3434");
+      localStorage.setItem("id", "05");
     });
 
     var westlala = {
@@ -99,6 +124,11 @@ function initMap() {
     marker6.addListener('click', function() {
       map.setZoom(15);
       map.setCenter(marker6.getPosition());
+      openForm("101 Grant St, West Lafayette, IN 47906","(765) - 494 - 8900");
+      localStorage.setItem("Address", "101 Grant St, West Lafayette, IN 47906");
+      localStorage.setItem("Phone", "(765) - 494 - 8900");
+      localStorage.setItem("id", "06");
+
     });
 
     var ny = {
@@ -114,6 +144,10 @@ function initMap() {
     marker7.addListener('click', function() {
       map.setZoom(15);
       map.setCenter(marker7.getPosition());
+      openForm("27 West Fourth Street, New York, NY 1003","(212) - 998 - 1212");
+      localStorage.setItem("Address", "27 West Fourth Street, New York, NY 1003");
+      localStorage.setItem("Phone", "(212) - 998 - 1212");
+      localStorage.setItem("id", "07");
     });
 
   }
