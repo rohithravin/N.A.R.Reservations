@@ -26,6 +26,11 @@ function initMap() {
       map: map
     });
 
+    marker.addListener('click', function() {
+      map.setZoom(15);
+      map.setCenter(marker.getPosition());
+    });
+
     var la = {
       lat: 34.052234,
       lng: -118.243685
@@ -34,6 +39,11 @@ function initMap() {
     var marker2 = new google.maps.Marker({
       position: la,
       map: map
+    });
+
+    marker2.addListener('click', function() {
+      map.setZoom(15);
+      map.setCenter(marker2.getPosition());
     });
 
     var sj = {
@@ -46,6 +56,11 @@ function initMap() {
       map: map
     });
 
+    marker3.addListener('click', function() {
+      map.setZoom(15);
+      map.setCenter(marker3.getPosition());
+    });
+
     var cupertino = {
       lat: 37.322998,
       lng: -122.032182
@@ -56,9 +71,19 @@ function initMap() {
       map: map
     });
 
+    marker4.addListener('click', function() {
+      map.setZoom(15);
+      map.setCenter(marker4.getPosition());
+    });
+
     var marker5 = new google.maps.Marker({
       position: austin,
       map: map
+    });
+
+    marker5.addListener('click', function() {
+      map.setZoom(15);
+      map.setCenter(marker5.getPosition());
     });
 
     var westlala = {
@@ -66,9 +91,14 @@ function initMap() {
       lng: -86.908066
     };
 
-    var marker5 = new google.maps.Marker({
+    var marker6 = new google.maps.Marker({
       position: westlala,
       map: map
+    });
+
+    marker6.addListener('click', function() {
+      map.setZoom(15);
+      map.setCenter(marker6.getPosition());
     });
 
     var ny = {
@@ -76,9 +106,14 @@ function initMap() {
       lng: -74.005
     };
 
-    var marker5 = new google.maps.Marker({
+    var marker7 = new google.maps.Marker({
       position: ny,
       map: map
+    });
+
+    marker7.addListener('click', function() {
+      map.setZoom(15);
+      map.setCenter(marker7.getPosition());
     });
 
   }
