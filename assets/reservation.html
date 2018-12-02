@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="css/Pretty-Registration-Form.css">
 </head>
 
-<body>
+<body onload="populateSite()">
     <nav class="navbar navbar-light navbar-expand-md" style="background-color: rgb(249,249,249)">
-        <div class="container-fluid"><a class="navbar-brand" href="#">Brand</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container-fluid"><a class="navbar-brand" href="#">N. A. R.</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse"
                 id="navcol-1">
                 <ul class="nav navbar-nav text-right ml-auto">
@@ -29,8 +29,8 @@
                 <h1 style="margin-bottom: 25px;">Make a Reservation Now!</h1>
                 <div class="form-row">
                     <div class="col">
-                        <p style="margin-bottom: 5px;color: rgb(95,95,95);">Address: 1309 Lillian Ave, Sunnyvale CA 94087</p>
-                        <p style="color: rgb(95,95,95);">Contact Info: 408 887 2684</p>
+                        <p style="margin-bottom: 5px;color: rgb(95,95,95);" id="addy">Address: 1309 Lillian Ave, Sunnyvale CA 94087</p>
+                        <p style="color: rgb(95,95,95);" id="phone">Contact Info: 408 887 2684</p>
                     </div>
                 </div>
                 <div class="form-row form-group">
@@ -63,8 +63,7 @@
     </div><button class="btn btn-outline-light text-center submit-button" type="button" style="margin-top: 0px;">Submit Form</button></form>
     </div>
     </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
+<script src="js/reservation.js"></script>
 
 </html>
