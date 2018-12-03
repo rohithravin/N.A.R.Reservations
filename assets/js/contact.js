@@ -3,6 +3,7 @@ function submitForm(){
   var email  = document.getElementById("email").value;
   var message = document.getElementById("message").value;
   var count = 0;
+  var sub = "Question about N. A. R. Restaurant";
 
   console.log(name);
   console.log(email);
@@ -35,11 +36,11 @@ function submitForm(){
     count = count + 1;
   }
 
-
   if(count == 3){
     console.log("All Entries Valid.");
     //INSERT CODE SEND US AN EMAIL VIA GOOGLE API
-  }
+    window.open('mailto:contactnarrestaurant@gmail.com?subject='+sub+'&body='+message);
 
+  }
 
 }
