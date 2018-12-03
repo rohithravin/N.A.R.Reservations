@@ -11,7 +11,7 @@
 
 <body>
     <nav class="navbar navbar-light navbar-expand-md" style="background-color: rgb(249,249,249)">
-        <div class="container-fluid"><a class="navbar-brand" href="#">N. A. R.</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container-fluid"><a class="navbar-brand" href="index.html">N. A. R.</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse"
                 id="navcol-1">
                 <ul class="nav navbar-nav text-right ml-auto">
@@ -25,10 +25,12 @@
     <div class="contact-clean">
         <form method="post">
             <h2 class="text-center">Contact us</h2>
-            <div class="form-group"><input class="form-control " type="text" name="name" placeholder="Name"><small class="form-text text-danger">Please enter a name.</small> </div>
-            <div class="form-group"><input class="form-control " type="email" name="email" placeholder="Email">
-                <small class="form-text text-danger">Please enter a correct email address.</small></div>
-            <div class="form-group"><textarea class="form-control" rows="14" name="message" placeholder="Message"></textarea><small class="form-text text-danger">Please enter a message.</small></div>
+            <div class="form-group"><input class="form-control " type="text" name="name" placeholder="Name" id="name">
+              <small class="form-text text-danger" style="display:none;">Please enter a name.</small> </div>
+            <div class="form-group"><input class="form-control " type="email" name="email" placeholder="Email" id="emal">
+                <small class="form-text text-danger" style="display:none;">Please enter a correct email address.</small></div>
+            <div class="form-group"><textarea class="form-control" rows="14" name="message" placeholder="Message" id="message"></textarea>
+              <small class="form-text text-danger" style="display:none;">Please enter a message.</small></div>
             <div class="form-group"><button class="btn btn-primary" type="submit" style="margin-left: 150px;">send </button></div>
         </form>
     </div>
