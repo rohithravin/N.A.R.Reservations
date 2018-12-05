@@ -23,7 +23,7 @@ var ReservationSchema = new mongoose.Schema({
     name:{type:String, required:[true, "Merchant name is required"]},
     email:{type:String, required:[true, "Email is required"]},
     phone:{type:Number, required:[true, "Phone Number is required"]},
-    month:{type:Number, required:[true, "monthis required"]},
+    month:{type:String, required:[true, "monthis required"]},
     day:{type:Number, required:[true, "day is required"]},
     year:{type:Number, required:[true, "year is required"]},
     time:{type:Number, required:[true, "time is required"]}
@@ -46,7 +46,11 @@ app.post('/processResveration', function(request, response){
   var restaurantAddress = request.body['restaurantAddress']
   var restaurantNumber = request.body['restaurantNumber']
 
-  Reservation.findOne({name:name, restaurnatID:restaurnatID}, function(error,hasReservationAlready){
+  console.log('name' , name)
+  console.log('restaurantID', restaurantID)
+  console.log('day',date)
+
+  Reservation.findOne({name:name, restaurantID:restaurantID}, function(error,hasReservationAlready){
     if(error){
         return response.json({success:-1, message:"Server error find name"})
     }
@@ -55,8 +59,9 @@ app.post('/processResveration', function(request, response){
           return response.json({success:-2, message:"This user already has a reservation as this restaurant location"})
         }
         else{
-          Reservation.findOne({restaurnatID:restaurnatID, time:time}, function(error,reservationTaken){
+          Reservation.findOne({restaurantID:restaurantID, time:time, day:date, year:year, month:month}, function(error,reservationTaken){
             if(error){
+                console.log(error)
                 return response.json({success:-4, message:"Server error find name"})
             }
             else{
@@ -65,9 +70,10 @@ app.post('/processResveration', function(request, response){
               }
               else{
                 var newReservation = new Reservation({restaurantID:restaurantID, restaurantAddress:restaurantAddress, restaurantNumber:restaurantNumber,name:name,
-                   email:email, phone:phone, month:month, day:day, year:year, time:time,})
+                   email:email, phone:phone, month:month, day:date, year:year, time:time})
                    newReservation.save(function(error){
                        if(error){
+                         console.log(error)
                            return response.json({success:-5, message:'There was an error saving registration. Check your input again'})
                        }
                        else{

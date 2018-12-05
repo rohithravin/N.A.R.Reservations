@@ -12,6 +12,9 @@ function submitForm(){
   var date = document.getElementById("date").value;
   var year = document.getElementById("year").value;
   var time = document.getElementById("time").value;
+  var restaurantID = localStorage.getItem("id");
+  var restaurantAddress = localStorage.getItem("Address");
+  var restaurantNumber = localStorage.getItem("Phone");
   var count = 0;
 
   if (name == null || name.length == 0){
@@ -43,8 +46,31 @@ function submitForm(){
   }
 
   if(count == 3){
-    console.log("All Entries Valid.");
-    window.location.href = "conf.html";
+    console.log("All Entries Valid." , restaurantID);
+
+    reservation = {restaurantID:restaurantID, restaurantAddress:restaurantAddress, restaurantNumber:restaurantNumber,name:name,
+       email:email, phone:phone, month:month, date:date, year:year, time:time}
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'http://localhost:3000/processResveration', true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+          var json = JSON.parse(xhr.responseText);
+          if (json['success'] == 1){
+              window.location.href = "conf.html";
+          }
+          else{
+              document.getElementById("error_msg").innerHTML = json['message']
+              document.getElementById("error_msg").style.display = "block";
+          }
+          console.log(json);
+      }
+    };
+    var data = JSON.stringify(reservation);
+    xhr.send(data);
+
+
 
   }
 

@@ -29,6 +29,7 @@
                 <h1 style="margin-bottom: 25px;">Make a Reservation Now!</h1>
                 <div class="form-row">
                     <div class="col">
+                        <small class="form-text text-danger" style="margin-bottom:10px; display:none; "  id="error_msg">ERROR</small>
                         <p style="margin-bottom: 5px;color: rgb(95,95,95);" id="addy">Address: 1309 Lillian Ave, Sunnyvale CA 94087</p>
                         <p style="color: rgb(95,95,95);" id="phone">Contact Info: 408 887 2684</p>
                     </div>
@@ -61,36 +62,36 @@
         <div class="col-sm-4 label-column"><label class="col-form-label" for="dropdown-input-field">Dropdown </label></div>
         <div class="col-sm-4 input-column"><select class="form-control" name="call time" required="" id="time">
           <optgroup label="Morning">
-            <option value="10:00" selected="">10:00am</option>
-            <option value="10:30">10:30am</option>
-            <option value="11:00">11:00am</option>
-            <option value="11:30">11:30am</option>
+            <option value="1000" selected="">10:00am</option>
+            <option value="1030">10:30am</option>
+            <option value="1100">11:00am</option>
+            <option value="1130">11:30am</option>
         </optgroup>
         <optgroup label="Afternoon">
-          <option value="12:00">12:00pm</option>
-          <option value="12:30">12:30pm</option>
-          <option value="13:00">1:00pm</option>
-          <option value="13:30">1:30pm</option>
-          <option value="14:00">2:00pm</option>
-          <option value="14:30">2:30pm</option>
-          <option value="15:00">3:00pm</option>
-          <option value="15:30">3:30pm</option>
-          <option value="16:00">4:00pm</option>
-          <option value="16:30">4:30pm</option>
+          <option value="1200">12:00pm</option>
+          <option value="1230">12:30pm</option>
+          <option value="1300">1:00pm</option>
+          <option value="1330">1:30pm</option>
+          <option value="1400">2:00pm</option>
+          <option value="1430">2:30pm</option>
+          <option value="1500">3:00pm</option>
+          <option value="1530">3:30pm</option>
+          <option value="1600">4:00pm</option>
+          <option value="1630">4:30pm</option>
         </optgroup>
         <optgroup label="Evening">
-          <option value="17:00pm">5:00pm</option>
-          <option value="17:30pm">5:30pm</option>
-          <option value="18:00pm">6:00pm</option>
-          <option value="18:30pm">6:30pm</option>
-          <option value="18:00pm">7:00pm</option>
-          <option value="19:30pm">7:30pm</option>
-          <option value="19:00pm">8:00pm</option>
-          <option value="19:30pm">8:30pm</option>
-          <option value="20:00pm">9:00pm</option>
-          <option value="20:30pm">9:30pm</option>
-          <option value="21:00pm">10:00pm</option>
-          <option value="21:30pm">10:30pm</option>
+          <option value="1700pm">5:00pm</option>
+          <option value="1730pm">5:30pm</option>
+          <option value="1800pm">6:00pm</option>
+          <option value="1830pm">6:30pm</option>
+          <option value="1800pm">7:00pm</option>
+          <option value="1930pm">7:30pm</option>
+          <option value="1900pm">8:00pm</option>
+          <option value="1930pm">8:30pm</option>
+          <option value="2000pm">9:00pm</option>
+          <option value="2030pm">9:30pm</option>
+          <option value="2100pm">10:00pm</option>
+          <option value="2130pm">10:30pm</option>
         </optgroup>
       </select>
     </div>
