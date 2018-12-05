@@ -38,6 +38,8 @@ function initMap() {
       localStorage.setItem("Address", "3419 19th St, San Francisco, CA 94110");
       localStorage.setItem("Phone", "4159672622");
       localStorage.setItem("id", "01");
+      localStorage.setItem('Long', sf['lng']);
+      localStorage.setItem('Lat', sf['lat']);
     });
 
     var la = {
@@ -57,6 +59,8 @@ function initMap() {
       localStorage.setItem("Address", "523 W 7th St, Los Angeles, CA 90014");
       localStorage.setItem("Phone", "2136283146");
       localStorage.setItem("id", "02");
+      localStorage.setItem('Long', la['lng']);
+      localStorage.setItem('Lat', la['lat']);
     });
 
     var sj = {
@@ -76,6 +80,8 @@ function initMap() {
       localStorage.setItem("Address", "428 E Santa Clara St, San Jose, CA 95113");
       localStorage.setItem("Phone", "4089982353");
       localStorage.setItem("id", "03");
+      localStorage.setItem('Long', sj['lng']);
+      localStorage.setItem('Lat', sj['lat']);
     });
 
     var cupertino = {
@@ -95,6 +101,8 @@ function initMap() {
       localStorage.setItem("Address", "20080 Stevens Creek Blvd, Cupertino, CA 95014");
       localStorage.setItem("Phone", "4089882353");
       localStorage.setItem("id", "04");
+      localStorage.setItem('Long', cupertino['lng']);
+      localStorage.setItem('Lat', cupertino['lat']);
     });
 
     var marker5 = new google.maps.Marker({
@@ -109,6 +117,8 @@ function initMap() {
       localStorage.setItem("Address", "110 Inner Campus Drive, Austin, TX 78705");
       localStorage.setItem("Phone", "5124713434");
       localStorage.setItem("id", "05");
+      localStorage.setItem('Long', austin['lng']);
+      localStorage.setItem('Lat', austin['lat']);
     });
 
     var westlala = {
@@ -128,6 +138,8 @@ function initMap() {
       localStorage.setItem("Address", "101 Grant St, West Lafayette, IN 47906");
       localStorage.setItem("Phone", "7654948900");
       localStorage.setItem("id", "06");
+      localStorage.setItem('Long', westlala['lng']);
+      localStorage.setItem('Lat', westlala['lat']);
 
     });
 
@@ -147,6 +159,8 @@ function initMap() {
       openForm("27 West Fourth Street, New York, NY 1003","(212) - 998 - 1212");
       localStorage.setItem("Address", "27 West Fourth Street, New York, NY 1003");
       localStorage.setItem("Phone", "2129981212");
+      localStorage.setItem('Long', ny['lng']);
+      localStorage.setItem('Lat', ny['lat']);
       localStorage.setItem("id", "07");
     });
 
