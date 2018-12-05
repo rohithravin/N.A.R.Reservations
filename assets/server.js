@@ -17,9 +17,9 @@ mongoose.connect('mongodb://localhost/nardb' , (err) => {
 })
 
 var ReservationSchema = new mongoose.Schema({
-    restaurnatID:{type:Number, required:[true, "restaurnatID is required"]},
-    restaurnatAddress:{type:String, required:[true, "restaurnatAddress is required"]},
-    restaurnatNumber:{type:Number, required:[true, "restaurnatNumber is required"]},
+    restaurantID:{type:Number, required:[true, "restaurantID is required"]},
+    restaurantAddress:{type:String, required:[true, "restaurantAddress is required"]},
+    restaurantNumber:{type:Number, required:[true, "restaurantNumber is required"]},
     name:{type:String, required:[true, "Merchant name is required"]},
     email:{type:String, required:[true, "Email is required"]},
     phone:{type:Number, required:[true, "Phone Number is required"]},
@@ -30,5 +30,57 @@ var ReservationSchema = new mongoose.Schema({
 }, {timestamps:true})
 
 mongoose.model('Reservation', ReservationSchema)
+var Reservation = mongoose.model('Reservation')
 
 console.log('***SCHEMA CREATED OR ALREADY THERE***');
+
+app.post('/processResveration', function(request, response){
+  var name = request.body['name']
+  var email = request.body['email']
+  var phone = request.body['phone']
+  var month = request.body['month']
+  var date = request.body['date']
+  var year = request.body['year']
+  var time = request.body['time']
+  var restaurantID = request.body['restaurantID']
+  var restaurantAddress = request.body['restaurantAddress']
+  var restaurantNumber = request.body['restaurantNumber']
+
+  Reservation.findOne({name:name, restaurnatID:restaurnatID}, function(error,hasReservationAlready){
+    if(error){
+        return response.json({success:-1, message:"Server error find name"})
+    }
+    else{
+        if(hasReservationAlready != null){
+          return response.json({success:-2, message:"This user already has a reservation as this restaurant location"})
+        }
+        else{
+          Reservation.findOne({restaurnatID:restaurnatID, time:time}, function(error,reservationTaken){
+            if(error){
+                return response.json({success:-4, message:"Server error find name"})
+            }
+            else{
+              if(reservationTaken != null){
+                return response.json({success:-3, message:"Restaurant location already has a reservation at given time"})
+              }
+              else{
+                var newReservation = new Reservation({restaurantID:restaurantID, restaurantAddress:restaurantAddress, restaurantNumber:restaurantNumber,name:name,
+                   email:email, phone:phone, month:month, day:day, year:year, time:time,})
+                   newReservation.save(function(error){
+                       if(error){
+                           return response.json({success:-5, message:'There was an error saving registration. Check your input again'})
+                       }
+                       else{
+                           var message='Reservation Confirmed!';
+                           console.log("message ",message)
+                           console.log("reservation", newReservation)
+                           return response.json({success:1, message:"Successfully save registration!!", reservation:newReservation})
+                       }
+                   })
+              }
+            }
+          })
+        }
+    }
+  })
+})
