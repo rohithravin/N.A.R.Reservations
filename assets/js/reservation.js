@@ -45,7 +45,7 @@ function submitForm(){
   if(count == 3){
     console.log("All Entries Valid.");
     window.location.href = "conf.html";
-    //INSERT CODE TO PUSH THIS RESERVATION INTO DATABASE
+
   }
 
 
