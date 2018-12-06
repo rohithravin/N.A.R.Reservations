@@ -52,7 +52,7 @@ function submitForm(){
        email:email, phone:phone, month:month, date:date, year:year, time:time}
 
     var xhr = new XMLHttpRequest();
-    var url = 'https://shrouded-badlands-47801.herokuapp.com'   + '/processResveration' ;
+    var url = 'https://shrouded-badlands-47801.herokuapp.com/processResveration' ;
     xhr.open('POST', url , true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
