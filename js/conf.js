@@ -12,7 +12,7 @@ function populateSite() {
   var address = localStorage.getItem("Address");
   var phone = localStorage.getItem("Phone");
 
-  var text = 'Hi ' + full_name + ',\nYour Reservation at the N. A. R. has been confirmed!\n\nAddress: ' + address + '\nPhone Number: ' + '(' + temp.substring(0,3) + ') - ' + temp.substring(3,6) + ' - ' + temp.substring(6) +'\n\n' +
+  var text = 'Hi ' + full_name + ',\n\nYour Reservation at the N. A. R. has been confirmed!\n\nAddress: ' + address + '\nPhone Number: ' + '(' + temp.substring(0,3) + ') - ' + temp.substring(3,6) + ' - ' + temp.substring(6) +'\n\n' +
               'Hope to see you soon!\n\nRegards,\nN. A. R. Staff';
   content = {email:email, text:text}
 
