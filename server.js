@@ -52,6 +52,7 @@ app.post('/processResveration', function(request, response){
 
   Reservation.findOne({name:name, restaurantID:restaurantID}, function(error,hasReservationAlready){
     if(error){
+        console.log(error)
         return response.json({success:-1, message:"Server error find name"})
     }
     else{
