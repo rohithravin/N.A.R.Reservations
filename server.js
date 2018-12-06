@@ -4,7 +4,7 @@ var mongoose=require('mongoose')
 var bodyParser=require('body-parser')
 var app = express();
 
-var server = app.listen(3000, () => {
+var server = app.listen(process.env.PORT || 3000, () => {
  console.log('server is running on port', server.address().port);
 });
 
@@ -12,7 +12,7 @@ app.use(express.static(__dirname));
 app.use(bodyParser.json())
 
 // Mongoose DB
-mongoose.connect('mongodb://localhost/nardb' , (err) => {
+mongoose.connect('mongodb+srv://rohithravin:4.0Stanford@cluster0-8smdt.mongodb.net/test?retryWrites=true' , (err) => {
    console.log('***CONNECTED TO NAR DATABASE MONGODB***');
 })
 
