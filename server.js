@@ -25,21 +25,22 @@ mongoose.connect('mongodb+srv://rohithravin:4.0Stanford@cluster0-8smdt.mongodb.n
    console.log('***CONNECTED TO NAR DATABASE MONGODB***');
 })
 
-var ReservationSchema = new mongoose.Schema({
+var Reservation2Schema = new mongoose.Schema({
     restaurantID:{type:Number, required:[true, "restaurantID is required"]},
     restaurantAddress:{type:String, required:[true, "restaurantAddress is required"]},
     restaurantNumber:{type:Number, required:[true, "restaurantNumber is required"]},
     name:{type:String, required:[true, "Merchant name is required"]},
     email:{type:String, required:[true, "Email is required"]},
     phone:{type:Number, required:[true, "Phone Number is required"]},
+    guests:{type:Number, required:[true, "Number of guests is required"]},
     month:{type:String, required:[true, "monthis required"]},
     day:{type:Number, required:[true, "day is required"]},
     year:{type:Number, required:[true, "year is required"]},
     time:{type:Number, required:[true, "time is required"]}
 }, {timestamps:true})
 
-mongoose.model('Reservation', ReservationSchema)
-var Reservation = mongoose.model('Reservation')
+mongoose.model('Reservation2', ReservationSchema2)
+var Reservation2 = mongoose.model('Reservation2')
 
 console.log('***SCHEMA CREATED OR ALREADY THERE***');
 
@@ -80,6 +81,7 @@ app.post('/processResveration', function(request, response){
   var date = request.body['date']
   var year = request.body['year']
   var time = request.body['time']
+  var guests = request.body['guests']
   var restaurantID = request.body['restaurantID']
   var restaurantAddress = request.body['restaurantAddress']
   var restaurantNumber = request.body['restaurantNumber']
@@ -88,7 +90,7 @@ app.post('/processResveration', function(request, response){
   console.log('restaurantID', restaurantID)
   console.log('day',date)
 
-  Reservation.findOne({name:name, restaurantID:restaurantID}, function(error,hasReservationAlready){
+  Reservation2.findOne({name:name, restaurantID:restaurantID}, function(error,hasReservationAlready){
     if(error){
         console.log(error)
         return response.json({success:-1, message:"Server error find name"})
@@ -98,7 +100,7 @@ app.post('/processResveration', function(request, response){
           return response.json({success:-2, message:"This user already has a reservation as this restaurant location"})
         }
         else{
-          Reservation.findOne({restaurantID:restaurantID, time:time, day:date, year:year, month:month}, function(error,reservationTaken){
+          Reservation2.findOne({restaurantID:restaurantID, time:time, day:date, year:year, month:month}, function(error,reservationTaken){
             if(error){
                 console.log(error)
                 return response.json({success:-4, message:"Server error find name"})
@@ -108,8 +110,8 @@ app.post('/processResveration', function(request, response){
                 return response.json({success:-3, message:"Restaurant location already has a reservation at given time"})
               }
               else{
-                var newReservation = new Reservation({restaurantID:restaurantID, restaurantAddress:restaurantAddress, restaurantNumber:restaurantNumber,name:name,
-                   email:email, phone:phone, month:month, day:date, year:year, time:time})
+                var newReservation = new Reservation2({restaurantID:restaurantID, restaurantAddress:restaurantAddress, restaurantNumber:restaurantNumber,name:name,
+                   email:email, phone:phone, month:month, day:date, year:year, time:time, guests:guests})
                    newReservation.save(function(error){
                        if(error){
                          console.log(error)

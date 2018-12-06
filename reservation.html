@@ -36,19 +36,44 @@
                 </div>
                 <div class="form-row form-group">
                     <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field">First Name</label></div>
-                    <div class="col-sm-6 input-column"><input class="form-control" type="text" required="" id="first_name"> <small class="form-text text-danger" id="error_name" style="display:none;">Please enter a name.</small></div>
+                    <div class="col-sm-6 input-column"><input class="form-control" type="text" required="" id="first_name">
+                      <small class="form-text text-danger" id="error_first_name" style="display:none" >Please enter a first name.</small></div>
                 </div>
                 <div class="form-row form-group">
                     <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field">Last Name</label></div>
-                    <div class="col-sm-6 input-column"><input class="form-control" type="text" required="" id="last_name"> <small class="form-text text-danger" id="error_name" style="display:none;">Please enter a name.</small></div>
+                    <div class="col-sm-6 input-column"><input class="form-control" type="text" required="" id="last_name">
+                      <small class="form-text text-danger" id="error_last_name" style="display:none;"  >Please enter a last name.</small></div>
                 </div>
                 <div class="form-row form-group">
                     <div class="col-sm-4 label-column"><label class="col-form-label" for="email-input-field">Email </label></div>
-                    <div class="col-sm-6 input-column"><input class="form-control" type="email" required="" id="email"><small class="form-text text-danger" id="error_email" style="display:none;">Please enter a correct email address.</small></div>
+                    <div class="col-sm-6 input-column"><input class="form-control" type="email" required="" id="email">
+                      <small class="form-text text-danger" id="error_email" style="display:none;">Please enter a correct email address.</small></div>
                 </div>
                 <div class="form-row form-group">
                     <div class="col-sm-4 label-column"><label class="col-form-label" for="pawssword-input-field">Phone Number</label></div>
-                    <div class="col-sm-6 input-column"><input class="form-control" type="te" required="" id="phone_num" > <small class="form-text text-danger" id="error_phone" style="display:none;">Please enter a phone number.</small></div>
+                    <div class="col-sm-6 input-column"><input class="form-control" type="te" required="" id="phone_num" >
+                      <small class="form-text text-danger" id="error_phone" style="display:none;">Please enter a phone number.</small></div>
+                </div>
+                <div class="form-row form-group">
+                  <div class="col-sm-4 label-column"><label class="col-form-label" for="dropdown-input-field">Number Of People</label></div>
+                  <div class="col-sm-4 input-column"><select class="form-control" name="call time" required="" id="num_peeps">
+                      <option value="1" selected="">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                      <option value="13">13</option>
+                      <option value="14">14</option>
+                      <option value="15">15</option>
+                </select>
+              </div>
                 </div>
                 <div class="form-row form-group">
                     <div class="col-sm-4 label-column"><label class="col-form-label" for="repeat-pawssword-input-field">Date</label></div>
@@ -73,7 +98,7 @@
         </div>
     </div>
     <div class="form-row form-group">
-        <div class="col-sm-4 label-column"><label class="col-form-label" for="dropdown-input-field">Dropdown </label></div>
+        <div class="col-sm-4 label-column"><label class="col-form-label" for="dropdown-input-field">Time</label></div>
         <div class="col-sm-4 input-column"><select class="form-control" name="call time" required="" id="time">
           <optgroup label="Morning">
             <option value="1000" selected="">10:00am</option>
@@ -109,7 +134,8 @@
         </optgroup>
       </select>
     </div>
-    </div><button class="btn btn-outline-light text-center submit-button" type="button" style="margin-top: 0px;" onclick="submitForm()">Reserve Now</button>
+    </div>
+    <button class="btn btn-outline-light text-center submit-button" type="button" style="margin-top: 0px;" onclick="submitForm()">Reserve Now</button>
   </form>
     </div>
     </div>

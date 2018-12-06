@@ -14,21 +14,33 @@ function submitForm(){
   var date = document.getElementById("date").value;
   var year = document.getElementById("year").value;
   var time = document.getElementById("time").value;
+  var num_of_people = document.getElementById("num_peeps").value;
+  console.log(num_of_people)
   var restaurantID = localStorage.getItem("id");
   var restaurantAddress = localStorage.getItem("Address");
   var restaurantNumber = localStorage.getItem("Phone");
   var name = first_name.concat(' ');
   name = name.concat(last_name);
   var count = 0;
+  console.log(name);
 
-  if (name == null || name.length == 0){
-    document.getElementById("error_name").style.display = "block";
-
+  if (first_name == null || first_name.length == 0){
+    document.getElementById("error_first_name").style.display = "block";
   }
   else {
-    document.getElementById("error_name").style.display = "none";
+    document.getElementById("error_first_name").style.display = "none";
     count = count + 1;
   }
+
+  if (last_name == null || last_name.length == 0){
+    document.getElementById("error_last_name").style.display = "block";
+  }
+  else {
+    document.getElementById("error_last_name").style.display = "none";
+    count = count + 1;
+  }
+
+
 
   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   if(!re.test(email)){
@@ -49,11 +61,11 @@ function submitForm(){
     count = count + 1;
   }
 
-  if(count == 3){
+  if(count == 4){
     console.log("All Entries Valid." , restaurantID);
     console.log("full name", name);
     reservation = {restaurantID:restaurantID, restaurantAddress:restaurantAddress, restaurantNumber:restaurantNumber,name:name,
-       email:email, phone:phone, month:month, date:date, year:year, time:time}
+       email:email, phone:phone, month:month, date:date, year:year, time:time, guests:num_of_people}
 
     var xhr = new XMLHttpRequest();
     var url = 'https://shrouded-badlands-47801.herokuapp.com/processResveration' ;
