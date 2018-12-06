@@ -4,6 +4,7 @@ function populateSite() {
   console.log(localStorage.getItem("id"))
   console.log(localStorage.getItem("Long"))
   console.log(localStorage.getItem("Lat"))
+  document.getElementById("title").innerHTML = localStorage.getItem("First_Name"); + ', Your Reservation Is Confirmed!'
 
 
 }

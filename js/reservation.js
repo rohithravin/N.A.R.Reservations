@@ -5,7 +5,8 @@ function populateSite() {
 }
 
 function submitForm(){
-  var name = document.getElementById("name").value;
+  var first_name = document.getElementById("first_name").value;
+  var last_name = document.getElementById("last_name").value;
   var email  = document.getElementById("email").value;
   var phone = document.getElementById("phone_num").value;
   var month = document.getElementById("month").value;
@@ -15,6 +16,8 @@ function submitForm(){
   var restaurantID = localStorage.getItem("id");
   var restaurantAddress = localStorage.getItem("Address");
   var restaurantNumber = localStorage.getItem("Phone");
+  var name = first_name.concat(' ');
+  name = name.concat(last_name);
   var count = 0;
 
   if (name == null || name.length == 0){
@@ -47,7 +50,7 @@ function submitForm(){
 
   if(count == 3){
     console.log("All Entries Valid." , restaurantID);
-
+    console.log("full name", name);
     reservation = {restaurantID:restaurantID, restaurantAddress:restaurantAddress, restaurantNumber:restaurantNumber,name:name,
        email:email, phone:phone, month:month, date:date, year:year, time:time}
 
@@ -59,6 +62,7 @@ function submitForm(){
       if (xhr.readyState === 4 && xhr.status === 200) {
           var json = JSON.parse(xhr.responseText);
           if (json['success'] == 1){
+              localStorage.setItem('First_Name', first_name);
               window.location.href = "conf.html";
           }
           else{
