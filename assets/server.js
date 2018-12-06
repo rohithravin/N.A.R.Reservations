@@ -16,7 +16,7 @@ app.use(function(req, res,next){
 })
 
 // Mongoose DB
-mongoose.connect('mongodb+srv://rohithravin:4.0Stanford@cluster0-8smdt.mongodb.net/test?retryWrites=true' , (err) => {
+mongoose.connect('mongodb://localhost/nardb' , (err) => {
    console.log('***CONNECTED TO NAR DATABASE MONGODB***');
 })
 
