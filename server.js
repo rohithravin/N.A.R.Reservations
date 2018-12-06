@@ -39,7 +39,7 @@ var Reservation2Schema = new mongoose.Schema({
     time:{type:Number, required:[true, "time is required"]}
 }, {timestamps:true})
 
-mongoose.model('Reservation2', ReservationSchema2)
+mongoose.model('Reservation2', Reservation2Schema)
 var Reservation2 = mongoose.model('Reservation2')
 
 console.log('***SCHEMA CREATED OR ALREADY THERE***');
