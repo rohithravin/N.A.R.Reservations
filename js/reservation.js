@@ -52,7 +52,12 @@ function submitForm(){
        email:email, phone:phone, month:month, date:date, year:year, time:time}
 
     var xhr = new XMLHttpRequest();
+<<<<<<< HEAD
     xhr.open('POST', 'http://localhost:3000/processResveration', true);
+=======
+    var url = 'http://localhost:' + (process.env.PORT||3000)  + '/processResveration' ;
+    xhr.open('POST', url , true);
+>>>>>>> parent of 45cd4c3... update
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.withCredentials = true;
     xhr.onreadystatechange = function () {
