@@ -52,7 +52,7 @@ function submitForm(){
        email:email, phone:phone, month:month, date:date, year:year, time:time}
 
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://localhost:3000/processResveration', true);
+    xhr.open('POST', 'http://localhost:' + process.env.PORT  + '/processResveration', true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4 && xhr.status === 200) {
