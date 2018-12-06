@@ -12,7 +12,7 @@ app.use(express.static(__dirname));
 app.use(bodyParser.json())
 
 // Mongoose DB
-mongoose.connect('mongodb://localhost/nardb' , (err) => {
+mongoose.connect('mongodb+srv://rohithravin:4.0Stanford@cluster0-8smdt.mongodb.net/test?retryWrites=true' , (err) => {
    console.log('***CONNECTED TO NAR DATABASE MONGODB***');
 })
 
