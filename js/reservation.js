@@ -64,6 +64,9 @@ function submitForm(){
           var json = JSON.parse(xhr.responseText);
           if (json['success'] == 1){
               localStorage.setItem('First_Name', first_name);
+              localStorage.setItem('Full_Name', name);
+              localStorage.setItem('Email', email);
+
               window.location.href = "conf.html";
           }
           else{

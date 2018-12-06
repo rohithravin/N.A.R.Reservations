@@ -2,6 +2,7 @@ var express = require('express');
 var path=require('path')
 var mongoose=require('mongoose')
 var bodyParser=require('body-parser')
+var nodemailer = require('nodemailer');
 var app = express();
 
 var server = app.listen(process.env.PORT || 3000, () => {
@@ -10,6 +11,14 @@ var server = app.listen(process.env.PORT || 3000, () => {
 
 app.use(express.static(__dirname));
 app.use(bodyParser.json())
+
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'contactnarrestaurant@gmail.com',
+    pass: 'nariscool'
+  }
+});
 
 // Mongoose DB
 mongoose.connect('mongodb+srv://rohithravin:4.0Stanford@cluster0-8smdt.mongodb.net/test?retryWrites=true' , (err) => {
@@ -33,6 +42,35 @@ mongoose.model('Reservation', ReservationSchema)
 var Reservation = mongoose.model('Reservation')
 
 console.log('***SCHEMA CREATED OR ALREADY THERE***');
+
+
+app.post('/sendConfirmationEmail', function(request, response){
+    var email = request.body['email'];
+    var text = request.body['text'];
+
+    var mailOptions = {
+      from: 'contactnarrestaurant@gmail.com',
+      to: email,
+      subject: 'Your Reservation At N. A. R. Is Confirmed!',
+      text: text
+    };
+
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+        return response.json({success:-1, message:"Error sending email."})
+
+      } else {
+        console.log('Email sent: ' + info.response);
+        return response.json({success:1, message:"Email Sent!"})
+      }
+    });
+})
+
+
+
+
+
 
 app.post('/processResveration', function(request, response){
   var name = request.body['name']
