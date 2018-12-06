@@ -58,7 +58,7 @@ app.post('/sendConfirmationEmail', function(request, response){
     transporter.sendMail(mailOptions, function(error, info){
       if (error) {
         console.log(error);
-        return response.json({success:-1, message:"Error sending email."})
+        return response.json({success:-1, message:error})
 
       } else {
         console.log('Email sent: ' + info.response);
