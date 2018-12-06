@@ -78,6 +78,7 @@ function submitForm(){
               localStorage.setItem('First_Name', first_name);
               localStorage.setItem('Full_Name', name);
               localStorage.setItem('Email', email);
+              localStorage.setItem('Guests', num_of_people);
 
               window.location.href = "conf.html";
           }

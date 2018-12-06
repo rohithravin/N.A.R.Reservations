@@ -25,7 +25,7 @@ mongoose.connect('mongodb+srv://rohithravin:4.0Stanford@cluster0-8smdt.mongodb.n
    console.log('***CONNECTED TO NAR DATABASE MONGODB***');
 })
 
-var Reservation2Schema = new mongoose.Schema({
+var ReservationSchema = new mongoose.Schema({
     restaurantID:{type:Number, required:[true, "restaurantID is required"]},
     restaurantAddress:{type:String, required:[true, "restaurantAddress is required"]},
     restaurantNumber:{type:Number, required:[true, "restaurantNumber is required"]},
@@ -39,8 +39,8 @@ var Reservation2Schema = new mongoose.Schema({
     time:{type:Number, required:[true, "time is required"]}
 }, {timestamps:true})
 
-mongoose.model('Reservation2', Reservation2Schema)
-var Reservation2 = mongoose.model('Reservation2')
+mongoose.model('Reservation', ReservationSchema)
+var Reservation = mongoose.model('Reservation')
 
 console.log('***SCHEMA CREATED OR ALREADY THERE***');
 
@@ -90,7 +90,7 @@ app.post('/processResveration', function(request, response){
   console.log('restaurantID', restaurantID)
   console.log('day',date)
 
-  Reservation2.findOne({name:name, restaurantID:restaurantID}, function(error,hasReservationAlready){
+  Reservation.findOne({name:name, restaurantID:restaurantID}, function(error,hasReservationAlready){
     if(error){
         console.log(error)
         return response.json({success:-1, message:"Server error find name"})
@@ -100,7 +100,7 @@ app.post('/processResveration', function(request, response){
           return response.json({success:-2, message:"This user already has a reservation as this restaurant location"})
         }
         else{
-          Reservation2.findOne({restaurantID:restaurantID, time:time, day:date, year:year, month:month}, function(error,reservationTaken){
+          Reservation.findOne({restaurantID:restaurantID, time:time, day:date, year:year, month:month}, function(error,reservationTaken){
             if(error){
                 console.log(error)
                 return response.json({success:-4, message:"Server error find name"})
