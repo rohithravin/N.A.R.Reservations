@@ -10,6 +10,10 @@ var server = app.listen(process.env.PORT || 3000, () => {
 
 app.use(express.static(__dirname));
 app.use(bodyParser.json())
+app.use(function(req, res,next){
+  res.header('Access-Control-Allow-Origin', "*");
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+})
 
 // Mongoose DB
 mongoose.connect('mongodb+srv://rohithravin:4.0Stanford@cluster0-8smdt.mongodb.net/test?retryWrites=true' , (err) => {
