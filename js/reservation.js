@@ -1,6 +1,7 @@
 function populateSite() {
   document.getElementById("addy").innerHTML = "Address: " + localStorage.getItem("Address");
-  document.getElementById("phone").innerHTML = "Contact Us: " + localStorage.getItem("Phone");
+  var temp  = localStorage.getItem("Phone");
+  document.getElementById("phone").innerHTML = "Contact Us: " + '(' + temp.substring(0,3) + ') - ' + temp.substring(3,6) + ' - ' + temp.substring(6) ;
   console.log(localStorage.getItem("id"))
 }
 
