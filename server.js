@@ -110,7 +110,7 @@ app.post('/processResveration', function(request, response){
                 return response.json({success:-3, message:"Restaurant location already has a reservation at given time"})
               }
               else{
-                var newReservation = new Reservation2({restaurantID:restaurantID, restaurantAddress:restaurantAddress, restaurantNumber:restaurantNumber,name:name,
+                var newReservation = new Reservation({restaurantID:restaurantID, restaurantAddress:restaurantAddress, restaurantNumber:restaurantNumber,name:name,
                    email:email, phone:phone, month:month, day:date, year:year, time:time, guests:guests})
                    newReservation.save(function(error){
                        if(error){
