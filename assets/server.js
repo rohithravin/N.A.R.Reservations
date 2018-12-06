@@ -46,6 +46,8 @@ app.post('/processResveration', function(request, response){
   var restaurantAddress = request.body['restaurantAddress']
   var restaurantNumber = request.body['restaurantNumber']
 
+  //Fix time if it is in evening
+
   console.log('name' , name)
   console.log('restaurantID', restaurantID)
   console.log('day',date)
